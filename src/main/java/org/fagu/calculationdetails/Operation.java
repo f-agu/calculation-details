@@ -5,6 +5,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.fagu.calculationdetails.operation.Add;
+import org.fagu.calculationdetails.operation.Divide;
+import org.fagu.calculationdetails.operation.Multiply;
+import org.fagu.calculationdetails.operation.Substract;
 
 
 public abstract class Operation {
@@ -29,13 +32,15 @@ public abstract class Operation {
 		Operator operator = toOperator(matcher.group(2));
 		Number n2 = toNumber(matcher.group(3));
 
-		System.out.println(n1);
-		System.out.println(operator);
-		System.out.println(n2);
-
 		switch(operator) {
 			case ADD:
 				return new Add(new Num(n1), new Num(n2));
+			case SUBSTRACT:
+				return new Substract(new Num(n1), new Num(n2));
+			case MULTIPLY:
+				return new Multiply(new Num(n1), new Num(n2));
+			case DIVIDE:
+				return new Divide(new Num(n1), new Num(n2));
 
 			default:
 				break;
@@ -80,6 +85,7 @@ public abstract class Operation {
 		// } else {
 		// System.out.println("Failed");
 		// }
-		parse("1.2 +  999").showDetails();
+		parse("999 * 12,34").showDetails();
+		// parse("999 * 765").showDetails();
 	}
 }

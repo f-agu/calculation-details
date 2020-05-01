@@ -5,9 +5,9 @@ import org.fagu.calculationdetails.Operation;
 import org.fagu.calculationdetails.utils.StringUtils;
 
 
-public class Add extends Operation {
+public class Substract extends Operation {
 
-	public Add(Num operandLeft, Num operandRight) {
+	public Substract(Num operandLeft, Num operandRight) {
 		super(operandLeft, operandRight);
 	}
 
@@ -21,13 +21,13 @@ public class Add extends Operation {
 			++maxFloatLength;
 		}
 
-		Num result = operandLeft.add(operandRight);
+		Num result = operandLeft.substract(operandRight);
 		int paddingResult = globalPadding + maxIntLength - result.getIntegerLength();
 
 		System.out.println(StringUtils.repeat(' ', globalPadding)
 				+ StringUtils.repeat(' ', maxIntLength - operandLeft.getIntegerLength()) + operandLeft);
 		System.out.println(StringUtils.repeat(' ', globalPadding - 2)
-				+ "+ " + StringUtils.repeat(' ', maxIntLength - operandRight.getIntegerLength()) + operandRight);
+				+ "- " + StringUtils.repeat(' ', maxIntLength - operandRight.getIntegerLength()) + operandRight);
 		System.out.println(StringUtils.repeat(' ', globalPadding - 2) + "──" + StringUtils.repeat('─', maxIntLength + maxFloatLength));
 		System.out.println(StringUtils.repeat(' ', paddingResult) + result);
 	}
