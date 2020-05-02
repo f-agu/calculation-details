@@ -17,7 +17,7 @@ public class Multiply extends Operation {
 	@Override
 	public void showDetails() {
 		final int startPadding = 6;
-		int globalPadding = startPadding + operandRight.toString().length() + 1;
+		int globalPadding = startPadding + operandRight.length() + 1;
 
 		int maxIntLength = Math.max(operandLeft.getIntegerLength(), operandRight.getIntegerLength());
 		int maxFloatLength = Math.max(operandLeft.getFloatLength(), operandRight.getFloatLength());
@@ -51,7 +51,7 @@ public class Multiply extends Operation {
 			++n;
 		}
 
-		System.out.println(StringUtils.repeat(' ', startPadding) + "──" + StringUtils.repeat('─', result.toString().length()));
+		System.out.println(StringUtils.repeat(' ', startPadding) + "──" + StringUtils.repeat('─', result.length()));
 		System.out.println(StringUtils.repeat(' ', paddingResult) + result);
 	}
 

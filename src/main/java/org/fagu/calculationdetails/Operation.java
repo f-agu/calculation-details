@@ -85,7 +85,7 @@ public abstract class Operation {
 		// } else {
 		// System.out.println("Failed");
 		// }
-		parse("999 * 12,34").showDetails();
+		parse("9 / 3").showDetails();
 		// parse("999 * 765").showDetails();
 	}
 }
